@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logoSDD.png" type="image/png">
+    <title>SDD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logoSDD.png" alt="Logo">
+            <h1> Sleep Disorder Detector</h1>
+        </div>
+        
+    </header>
+ 
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+ 
+    <section>
+        <h2>Welcome to Sleep Disorder Detector</h2>
+        <p></p>
+        
+       <form action="{{ url_for('predict')}}" method="post">
+        
+            <div id="manualFormFields">
+                
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="occupation">Occupation:</label>
+                <select id="occupation" name="occupation" required>
+                         <option value="0">Nurse</option>
+                         <option value="1">Doctor</option>
+                         <option value="2">Teacher</option>
+                         <option value="3">Scientist</option>
+                         <option value="4">Engineer</option>
+                         <option value="5">Lawyer</option>                 
+                         <option value="6">Accountant</option>
+                         <option value="7">Sales-Worker</option>
+                         <option value="8">Manager</option>
+                         <option value="9">Other</option>
+                     </select>
+
+                <label for="stressLevel">Stress Level:</label>
+                <select id="stressLevel" name="stressLevel" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>                 
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+
+                <label for="bmiCategory">BMI Category:</label>
+                <select id="bmiCategory" name="bmiCategory" required>
+                    <option value=0>Normal Weight</option>
+                    <option value=2>Overweight</option>
+                    <option value=1>Obese</option>
+                </select>
+
+                <label for="heartRate">Heart Rate:</label>
+                <input type="number" id="heartRate" name="heartRate" required>
+
+                <label for="bloodPressure">Blood Pressure:</label>
+                <label for="systolic">Systolic:</label>
+                <input type="number" id="systolic" name="systolic" required>
+
+                <label for="diastolic">Diastolic:</label>
+                <input type="number" id="diastolic" name="diastolic" required>
+
+                <input type="hidden" id="bloodPressureCategory" name="bloodPressureCategory">
+              
+                
+            </div>
+            <button type="submit">Detect</button>
+    
+        </form>
+        <div class="prediction">
+            {{ prediction_text }}
+        </div>
+    </section>
+ 
+    <footer>
+        <p>&copy; 2023 Sleep Disorder Detector. All rights reserved.</p>
+    </footer>
+ 
+
+</body>
+</html>
+
